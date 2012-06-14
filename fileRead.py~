@@ -1,0 +1,31 @@
+file1 = open('./dj38.tsp.txt')
+print file1.readlines()
+    
+
+f = open('./dj38.tsp.txt')
+line = f.readline()
+firstword=""
+print line
+print not ('' is line)
+print (line.find('NODE_COORD_SECTION'))
+
+
+while ((not(line is 'x')) and  (line.find('NODE_COORD_SECTION'))<0):
+    
+    line=f.readline()
+
+line=f.readline()
+print line,
+
+
+print "Last line is : " , line
+print "finished reading."
+
+
+    
+        
+
+    
+    
+
+

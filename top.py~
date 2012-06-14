@@ -1,0 +1,68 @@
+import fitnessFunction
+
+def quickSort(sortBy,sortAlong):
+    pivot = sortBy[0]
+    pivotAlong = sortAlong[0]
+    length = len(sortBy)
+    lhsBy = []
+    rhsBy = []
+    lhsAlong = []
+    rhsAlong = []
+    
+    
+    for i in range(1,length):
+        if(sortBy[i] < pivot):
+            lhsBy.append(sortBy[i])
+            lhsAlong.append(sortAlong[i])
+        else:
+            rhsBy.append(sortBy[i])
+            rhsAlong.append(sortAlong[i])
+    
+    quickSort(lhsBy, lhsAlong)
+    quickSort(rhsBy, rhsAlong)
+
+    sortBy = lhsBy + pivot + rhsBy
+    sortAlong = lhsAlong + pivotAlong + rhsAlong
+
+
+
+def insertAtPosition(fitness, member, fitnessArr, memberArr):
+    length = len(fitnessArr)
+    for i in fitnessArr:
+        if fitness < i:
+            j = length
+            while (j > i):
+                fitnessArr[j] = fitnessArr[j - 1]
+                memberArr[j] = memberArr[j - 1]
+                j -= 1
+    
+            fitnessArr[i]= fitness
+            memberArr[i]= member
+
+
+def top(n,members,cityList):
+    fitnessList = []
+    for member in members:
+        fitnessList.append(fitnessFunction.fitnessFunction(member, cityList))
+    
+    ans = []
+    ansFitness = []
+    insertedMembers = 0
+    memberCount = len(members)
+
+    for i in range(n):
+        ans.append(members[i])
+        ansFitness.append(fitnessList[i])
+
+    quickSort(ansFitness, ans)
+
+    threshold = ansFitness[n - 1]
+    
+    for j in members[n: ]:
+        if fitnessList[j] < threshold:
+            insertAtPosition(fitnessList[j], members[j], ansFitness, ans)
+            threshold = ansFitness[n - 1]
+
+    return ans
+    
+    

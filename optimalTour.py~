@@ -1,0 +1,20 @@
+import fitnessFunction
+
+def readFile(city):
+
+    f = open('./ALL_tsp/a280.opt.tour')
+    line = f.readline()
+    while ((not(line is '')) and  (line.find('TOUR_SECTION'))<0):
+        line=f.readline()
+        
+    line=f.readline()
+    r=0
+    
+    while((line.find("EOF"))<0):
+        L=list()
+        L=line.split()
+        city.append(int(L[0]))
+        r = r+1
+        line=f.readline()
+
+print "Optimum tour length is: ", fitnessFunction.fitnessFunction(city)
