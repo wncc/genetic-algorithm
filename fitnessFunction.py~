@@ -13,6 +13,5 @@ def fitnessFunction(citySequence,cities):
         index += 1
     return sum
 
-print fitnessFunction([2,3,1],[[1,2],[2,3],[3,4]])
+#print fitnessFunction([2,3,1],[[1,2],[2,3],[3,4]])
         
-XS

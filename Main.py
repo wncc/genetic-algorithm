@@ -16,9 +16,9 @@ cityCount=len(city)
 bestAns = []
 #currentbestAns = []
 bestVal = 10000000000
-runs = 1
+runs = 60
 
-populationLimit = 200
+populationLimit = 100
 population = []
 population = randomLists.randomLists(populationLimit,cityCount)
 
@@ -28,6 +28,7 @@ for i in range(runs):
    
     j = i + 1
     print "Run#: ", j
+    print bestVal
     newGeneration=[]
 
     for j in range(populationLimit):

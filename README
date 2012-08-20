@@ -1,0 +1,7 @@
+Your system must have python installed, on linux (Ubuntu)
+
+1. Download the zip file and extract it.
+2. Now run Main.py using"$ python Main.py"
+3. You can change the number of population members and the number of runs as state variables in Main.py
+4. You can change the the problem that you wish to solve by copying the required file from the list of sample tsp files given in the folder ALL_tsp, and then applying that filename to the state variable in fileRead.py
+

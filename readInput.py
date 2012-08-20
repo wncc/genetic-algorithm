@@ -1,6 +1,6 @@
 def readFile(city):
 
-    f = open('./ALL_tsp/a280.tsp')
+    f = open('./dj38.tsp.txt')
     line = f.readline()
     while ((not(line is '')) and  (line.find('NODE_COORD_SECTION'))<0):
         line=f.readline()

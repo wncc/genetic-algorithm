@@ -4,7 +4,9 @@ import mutation
 import readInput
 import randomLists
 import top
+import time
 
+start = time.clock()
 
 city = []
 
@@ -14,9 +16,9 @@ cityCount=len(city)
 bestAns = []
 #currentbestAns = []
 bestVal = 10000000000
-runs = 100
+runs = 60
 
-populationLimit = 200
+populationLimit = 400
 population = []
 population = randomLists.randomLists(populationLimit,cityCount)
 
@@ -24,6 +26,9 @@ population = randomLists.randomLists(populationLimit,cityCount)
 
 for i in range(runs):
    
+    j = i + 1
+    print "Run#: ", j
+    print bestVal
     newGeneration=[]
 
     for j in range(populationLimit):
@@ -34,6 +39,7 @@ for i in range(runs):
     
     for k in range(populationLimit):
         for l in range((k+1), populationLimit):
+           # child = population[k]
             child = crossover.crossover(population[k],population[l],city)
             newGeneration.append(child)
 
@@ -41,7 +47,7 @@ for i in range(runs):
         member = mutation.mutate(member)
 
     for m in range(populationLimit):
-        newGeneration.append(population(m))
+        newGeneration.append(population[m])
 
     
 
@@ -51,3 +57,7 @@ for i in range(runs):
 
 print bestAns
 print bestVal
+
+elapsed = time.clock()
+
+print elapsed - start

@@ -11,6 +11,11 @@ def fitnessFunction(citySequence,cities):
         ycord = cities[(citySequence[index] - 1)][1] - cities[(citySequence[index + 1] - 1)][1]
         sum += math.sqrt((xcord * xcord) + (ycord * ycord))
         index += 1
+
+    xcord = cities[(citySequence[length - 1] - 1)][0] - cities[0][0]
+    ycord = cities[(citySequence[length - 1] - 1)][1] - cities[0][1]
+    sum += math.sqrt((xcord * xcord) + (ycord * ycord))
+    
     return sum
 
 #print fitnessFunction([2,3,1],[[1,2],[2,3],[3,4]])
